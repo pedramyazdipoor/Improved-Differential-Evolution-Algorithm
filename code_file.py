@@ -13,8 +13,9 @@ from numpy import sqrt
 from numpy import cos
 from numpy import e
 from numpy import pi
-
+#====================================================================================================================================
 np.seterr(divide='ignore')
+
 def f1(list):
     result = 0
     for i in range(0, len(list)):
@@ -94,8 +95,7 @@ dimension = 30
 pop_size = 100
 generations = 1500
 function_number = 8     #index == function number (12 functions, 1-12)
-
-#=================== DONOT TOUCH HERE PLEASE ===================================================
+#=================== DONOT TOUCH HERE PLEASE =========================================================================================
 func7 = bf.Ackley(n_dimensions=dimension)     #f7
 func5 = bf.Rosenbrock(n_dimensions=dimension) #f5
 func6 = bf.Rastrigin(n_dimensions=dimension)  #f6
@@ -105,7 +105,7 @@ func = func_list[function_number]
 absolute_bound = [0,100,10,100,1.28,30,5.12,32,600,100,1.28,10,1] #index == function_number
 lower_bound = -1*(absolute_bound[function_number])
 upper_bound = (absolute_bound[function_number])
-#====================================================================================================================================
+#=====================================================================================================================================
 #first population
 def initialization(dimension, pop_size, lower_bound, upper_bound):
     pop = []
@@ -115,8 +115,7 @@ def initialization(dimension, pop_size, lower_bound, upper_bound):
             temp.append(random.uniform(lower_bound, upper_bound))
         pop.append(temp)
     return pop
-
-
+#====================================================================================================================================
 def fitness_evaluator(pop):
     dimension = len(pop[0])
     fitness_list = []
@@ -124,7 +123,7 @@ def fitness_evaluator(pop):
         #fitness_list.append([f3(pop[i]), i])
         fitness_list.append([func(pop[i]),i])
     return fitness_list
-
+#====================================================================================================================================
 #select best individuals randomly
 def selector(pop, lowRank):
     start = lowRank - 1
@@ -133,8 +132,7 @@ def selector(pop, lowRank):
     for i in range(start, start + end):
         super_pop.append(pop[i])
     return super_pop
-
-
+#====================================================================================================================================
 def opposition_learning(pop):
     dim = len(pop[0])
     a, b = [0 for j in range(0, dim)], [0 for k in range(0, dim)]
@@ -160,8 +158,7 @@ def opposition_learning(pop):
     for z in range(0, int(len(pop) / 2)):
         result.append(pop[list[z][-1]])
     return result
-
-
+#====================================================================================================================================
 def crossover(pop, x1, x2, x3, best):
     dim = len(pop[0])
     new_pop = []
@@ -185,7 +182,7 @@ def crossover(pop, x1, x2, x3, best):
         else:
             result.append(new_pop[u])
     return result
-
+#====================================================================================================================================
 #main function
 def execute(rank, n_executions):
   #list_gen = [0 for u in range(0,1500)]
@@ -233,18 +230,17 @@ def execute(rank, n_executions):
   print("median:",np.median(list_n))
   print("avg_time:",np.average(list_time))
   print("std_time:",np.std(list_time))
-  
-  
+#====================================================================================================================================
+#Here you can easily run with desired parameters 
 #rank = [1,11,21,31]
 execute(rank = 1, n_executions = 10) 
-
+#====================================================================================================================================
 #code of drawing figures and graphs
 '''
 one = load('list_gen_1.npy')
 two = load('list_gen_11.npy')
 three = load('list_gen_21.npy')
 four = load('list_gen_31.npy')
-
 time = np.arange(1,1501)
 plt.plot(time, one,label='1_30')
 plt.plot(time, two,label='11_40')
