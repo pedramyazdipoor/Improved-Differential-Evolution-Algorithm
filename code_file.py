@@ -1,5 +1,5 @@
+#!pip install benchmark-functions
 import numpy as np
-!pip install benchmark-functions
 import benchmark_functions as bf
 import random
 from random import randint
