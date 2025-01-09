@@ -13,4 +13,4 @@ reverse point in order to correct the convergence direction and select the bette
 
 ![image](https://github.com/user-attachments/assets/e7834567-3c22-4d70-a602-20dfd8f79f55)
 
-
+Finally, the proposed algorithm is evaluated by 12 benchmark functions with low-dimension and high-dimension.
