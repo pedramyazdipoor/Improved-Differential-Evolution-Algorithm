@@ -15,4 +15,4 @@ reverse point in order to correct the convergence direction and select the bette
 
 Finally, the proposed algorithm is evaluated by 12 benchmark functions with low-dimension and high-dimension. \
 The experiment results indicate that the proposed NBOLDE has a faster convergence speed, higher convergence accuracy, and better optimization capabilities 
-in solving high-dimensional complex functions.
+in solving high-dimensional uni-modal and multi-modal functions.
